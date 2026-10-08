@@ -1,4 +1,3 @@
-// 第3集：运算符、循环语句、分支语句
 public class BasicGrammar {
     public static void main(String[] args) {
         // **** 运算符 ****

@@ -1,4 +1,3 @@
-// 第4.1集：String 常用方法、拼接、转义
 public class StringBasic {
     public static void main(String[] args) {
         String a = "Hello World ";
@@ -7,7 +6,7 @@ public class StringBasic {
         System.out.println(a.length());      // 12
         System.out.println(a.toLowerCase()); // hello world
         System.out.println(a.toUpperCase()); // HELLO WORLD
-        System.out.println(a.trim());        // Hello World
+        System.out.println(a.trim());        // Hello World 去掉开头结尾空白字符
         System.out.println(a.indexOf("o"));  // 4
 
         // 拼接：+ 从左向右结合

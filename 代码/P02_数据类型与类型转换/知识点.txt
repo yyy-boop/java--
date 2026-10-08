@@ -1,0 +1,66 @@
+第2集 数据类型与类型转换
+
+一、基本数据类型
+
+1. Java 数据类型分两种：基本数据类型和引用数据类型。
+
+2. 基本数据类型共 8 个：
+   整型：byte、short、int、long
+   浮点型：float、double
+   字符型：char
+   布尔型：boolean
+
+3. 整型按存储空间区分：byte 占 1 字节（-128~127），short 占 2 字节，int 占 4 字节，long 占 8 字节。
+
+4. float 占 4 字节，double 占 8 字节，double 精度更高。
+
+5. char 占 2 字节，表示单个字符，用单引号标记；双引号表示字符串，字符串属于引用类型。
+
+6. boolean 只有 true 和 false。
+
+7. byte 赋值超过 127 会编译报错；long 字面量建议加 L 后缀；float 字面量必须加 F 后缀，否则会被当成 double。
+
+二、包装类型
+
+1. 包装类型把基本数据类型包装成对应的对象类型，从而可以调用方法。
+
+2. 8 种基本类型对应的包装类型：
+   Byte、Short、Integer、Long、Float、Double、Character、Boolean。
+
+3. 包装类型的三种声明方式：
+   new Integer(值)
+   Integer.valueOf(值)
+   直接赋值（自动装箱，如 Integer x = 3）
+
+4. Integer.parseInt(字符串) 可以把字符串转换成 int。
+
+5. 包装类型对象可以用 equals 比较内容；基本数据类型只能直接比较值。
+
+三、类型转换
+
+1. 自动类型转换（隐式、放大转换）：从小类型到大类型自动完成，不丢失精度。
+   转换链：byte -> short -> int -> long -> float -> double。
+
+2. char 可以隐式转换成 int，得到字符对应的 ASCII 码，例如 'A' 转换后为 65。
+
+3. 强制类型转换（显式、缩小转换）：从大类型到小类型需要手动在前面加 (类型)，可能丢失精度。
+   转换链：double -> float -> long -> int -> char -> short -> byte。
+
+4. 强制转换只作用于紧随其后的变量或表达式；要强转整个表达式，必须用括号括起来。
+   例如 (int)(a * b) 才是把乘积整体转换，(int)a * b 只转换了 a。
+
+5. float 转 int 会直接舍弃小数部分，例如 2.9 转换后为 2。
+
+四、表达式提升与整数溢出
+
+1. 表达式运算时，结果会自动提升为所有操作数中存储空间最大的类型。
+   例如 float、double、int 混合运算，结果为 double。
+
+2. int 与 int 相加结果仍是 int，超过 int 范围会溢出，得到错误（常为负数）结果。
+
+3. 溢出之后再把结果强转成 long 已经没有意义，因为溢出在 int 阶段就已经发生。
+
+4. 正确做法：在相加之前，先把其中一个操作数强转成 long，另一个会自动提升为 long。
+   例如 long r = (long)a + b; 结果正确。
+
+对应代码见 AutoConversion.java 与 ForceCastDemo.java。

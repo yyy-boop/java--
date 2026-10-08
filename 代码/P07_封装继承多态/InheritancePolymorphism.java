@@ -1,4 +1,3 @@
-// 第7集：继承（super、重写、final）与多态（向上/向下转型、instanceof）
 public class InheritancePolymorphism {
     public static void main(String[] args) {
         // 继承

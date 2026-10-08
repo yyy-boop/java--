@@ -1,0 +1,78 @@
+Maven 基础知识（视频外补充）
+
+一、Maven 是什么
+
+1. Maven 是一个项目构建和依赖管理工具，基于 Java 开发，主要服务于 Java 项目。
+
+2. 构建指的是编译、运行测试、打包、部署等一系列操作，Maven 用一条命令就能按标准流程自动完成。
+
+3. 依赖管理指的是自动下载项目需要的第三方 jar 包，并自动处理这些 jar 包之间的依赖关系，不用再手动找 jar、导 jar。
+
+4. Maven 遵循"约定优于配置"，规定了统一的项目目录结构，所有 Maven 项目结构一致，便于协作。
+
+二、标准目录结构
+
+1. pom.xml：Maven 项目的核心配置文件，位于项目根目录。
+
+2. src/main/java：存放项目的 Java 源代码。
+
+3. src/main/resources：存放配置文件等资源。
+
+4. src/test/java：存放测试代码。
+
+5. target：编译和打包的输出目录，由 Maven 自动生成。
+
+三、坐标与依赖
+
+1. Maven 通过"坐标"唯一确定一个 jar 包，坐标由三部分组成：
+   groupId：组织或公司标识，一般是倒写的域名，如 com.alibaba；
+   artifactId：项目或模块名称；
+   version：版本号。
+
+2. 在 pom.xml 的 dependencies 中用 dependency 标签声明依赖，写出对方的 groupId、artifactId、version，Maven 会自动下载。
+
+3. 依赖范围 scope 常用取值：
+   compile：默认值，编译、测试、运行都有效；
+   test：只在测试时有效，如 junit；
+   provided：编译和测试有效，运行时由环境提供，如 servlet-api；
+   runtime：只在运行和测试时需要，编译不需要。
+
+4. Maven 会自动引入一个依赖所依赖的其他 jar，称为"传递依赖"。
+
+四、仓库
+
+1. 仓库是存放 jar 包的地方，分三类：
+   本地仓库：默认在用户目录下的 .m2/repository，下载过的 jar 会缓存到本地；
+   中央仓库：Maven 官方提供的公共仓库，包含绝大多数开源 jar；
+   私服：公司内部搭建的仓库，如 Nexus。
+
+2. 国内访问中央仓库较慢，通常在 settings.xml 中配置阿里云镜像来加速下载。
+
+五、生命周期与常用命令
+
+1. Maven 有三套独立的生命周期，最常用的是 default 生命周期，主要阶段按顺序为：
+   compile 编译；
+   test 运行测试；
+   package 打包（jar 或 war）；
+   install 把包安装到本地仓库；
+   deploy 部署到远程仓库。
+
+2. 执行某个阶段时，它前面的阶段会自动依次执行，例如执行 package 会自动先 compile、test。
+
+3. 常用命令（在项目根目录、pom.xml 所在处执行）：
+   mvn clean：清理 target 目录；
+   mvn compile：编译主代码；
+   mvn test：运行测试；
+   mvn package：打包；
+   mvn install：安装到本地仓库；
+   mvn clean package -DskipTests：清理后打包并跳过测试。
+
+六、IDEA 中的使用
+
+1. IDEA 自带 Maven 支持，新建项目时选择 Maven 骨架（archetype）或直接创建普通 Maven 项目即可。
+
+2. 在 pom.xml 中添加依赖后，IDEA 会自动下载并导入，右侧 Maven 面板可以手动点刷新（Reload）。
+
+3. Maven 面板中可以直接双击执行各个生命周期命令，也可以在终端手动敲 mvn 命令。
+
+4. settings.xml 中可以配置本地仓库位置和镜像；IDEA 里在 Settings -> Build Tools -> Maven 中指定 Maven 路径和该配置文件。

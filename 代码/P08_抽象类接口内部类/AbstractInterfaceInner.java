@@ -1,4 +1,3 @@
-// 第8集：抽象类、接口、四种内部类
 public class AbstractInterfaceInner {
 
     // 四种内部类

@@ -1,4 +1,3 @@
-// 第9集：Collection、List、Set
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -18,7 +17,7 @@ public class CollectionStudy {
         collection.add("Banana");
         collection.add("Cherry");
         System.out.println("初始: " + collection);
-        System.out.println("空？" + collection.isEmpty());
+        System.out.println("是否为空？" + collection.isEmpty());
         System.out.println("大小：" + collection.size());
         System.out.println("含 Banana？" + collection.contains("Banana"));
         collection.remove("Banana");

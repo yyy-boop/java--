@@ -1,5 +1,3 @@
-// 第5集：数组
-// 数组长度固定、只能存同一种类型、下标从 0 开始；Arrays 的常用方法
 import java.util.Arrays;
 
 public class ArrayStudy {

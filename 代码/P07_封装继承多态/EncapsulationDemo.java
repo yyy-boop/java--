@@ -1,7 +1,7 @@
-// 第7集：封装（getter/setter + 校验）、隐藏实现细节（性别 0/1）、父类构造调用顺序
 public class EncapsulationDemo {
 
     // 封装：字段私有，受控访问
+    //静态类加载时就分配内存，和有无new对象无关，所有对象共用一份。可直接通过类名调用
     static class Person {
         private String name;
         private int age;
@@ -48,11 +48,12 @@ public class EncapsulationDemo {
         private int age;
 
         OrderDog(int age) {
+            //子类构造器第一行默认隐含 super()，先调用父类 OrderAnimal 的无参构造。之后继续执行才进行赋值
             this.age = age;
             System.out.println("I am a dog, my age is " + this.age);
         }
 
-        @Override
+        @Override //重写父类/实现接口检测
         void sound() {
             System.out.println("I am a dog, my age is " + this.age);
         }

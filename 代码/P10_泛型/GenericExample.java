@@ -1,4 +1,3 @@
-// 第10集：泛型
 // 声明类/接口/方法时类型不确定，用 <T> 占位，创建对象或调用时再确定具体类型
 import java.util.ArrayList;
 import java.util.List;

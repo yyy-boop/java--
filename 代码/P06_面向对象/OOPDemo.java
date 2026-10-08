@@ -1,4 +1,3 @@
-// 第6集：类的基本结构、访问修饰符、构造方法
 public class OOPDemo {
     public static void main(String[] args) {
         // MyCar：属性的访问修饰符（private 字段只能在 MyCar 内部通过构造/方法访问）

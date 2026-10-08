@@ -1,0 +1,53 @@
+第9集 集合
+
+一、Collection 根接口
+
+1. 集合只能存储引用类型，长度可变；数组长度固定，可存基本类型。
+
+2. Collection 是单列集合的根接口，常用方法：
+   add(元素) 添加；
+   remove(元素) 删除；
+   contains(元素) 是否包含；
+   size() 元素个数；
+   isEmpty() 是否为空；
+   clear() 清空。
+
+3. 遍历方式：增强 for 循环；Iterator 迭代器（hasNext 判断、next 取出）。
+
+二、List 接口
+
+1. List 特点：有序（存取顺序一致）、元素可重复、有索引。
+
+2. 特有方法：
+   add(索引, 元素) 在指定位置插入；
+   get(索引) 访问；
+   set(索引, 元素) 替换；
+   remove(索引) 按索引删除；
+   indexOf / lastIndexOf 查找位置；
+   subList(起始, 结束) 截取，左闭右开。
+
+3. ArrayList：底层是数组，查询快、增删慢，最常用。
+
+4. LinkedList：底层是链表，首尾增删快。
+
+三、Set 接口
+
+1. Set 特点：无序、元素不重复、无索引。
+
+2. HashSet：底层是哈希表，存取无序。
+
+3. LinkedHashSet：底层是哈希表加链表，能保持插入顺序。
+
+4. TreeSet：底层是红黑树，元素自动升序排序，提供 first()、last() 等方法。
+
+5. 自定义对象放入 HashSet 去重，需要重写 hashCode 和 equals 方法。
+
+四、集合运算
+
+1. addAll：求并集，把另一个集合的元素全部加入。
+
+2. retainAll：求交集，只保留两个集合共有的元素。
+
+3. removeAll：求差集，删除另一个集合中包含的元素。
+
+对应代码见 CollectionStudy.java。
